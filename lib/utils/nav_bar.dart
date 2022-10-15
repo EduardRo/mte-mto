@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mate_mato/route/route.dart' as route;
+// import 'package:mate_mato/views/home_page.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({super.key});
@@ -34,22 +36,22 @@ class NavBar extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.home),
             title: const Text('Home'),
-            onTap: () => {},
+            onTap: () => Navigator.pushNamed(context, route.homePage),
           ),
           ListTile(
             leading: const Icon(Icons.mode_outlined),
             title: const Text('Exercitii'),
-            onTap: () => {},
+            onTap: () => Navigator.pushNamed(context, route.exercitiiPage),
           ),
           ListTile(
             leading: const Icon(Icons.school),
             title: const Text('Teorie'),
-            onTap: () => {},
+            onTap: () => Navigator.pushNamed(context, route.teoriePage),
           ),
           ListTile(
             leading: const Icon(Icons.task_alt),
             title: const Text('Rezultate'),
-            onTap: () => {},
+            onTap: () => Navigator.pushNamed(context, route.rezultatePage),
           ),
           ListTile(
             leading: const Icon(Icons.stars),

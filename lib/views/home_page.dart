@@ -1,8 +1,4 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 import 'package:flutter/material.dart';
-
 import '../utils/nav_bar.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,7 +16,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('MATE-MATO'),
       ),
-      body: Container(),
+      body: const Text('Home page'),
     );
   }
 }

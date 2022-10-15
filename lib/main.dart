@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'views/home_page.dart';
+import 'route/route.dart' as route;
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,9 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         /* dark theme settings */
       ),
-      home: const HomePage(),
+      onGenerateRoute: route.controller,
+      initialRoute: route.homePage,
+      //home: const HomePage(),
     );
   }
 }
