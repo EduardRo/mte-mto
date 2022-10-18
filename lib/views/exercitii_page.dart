@@ -13,7 +13,7 @@ class ExercitiiPage extends StatelessWidget {
         title: Row(children: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.add_call),
+            icon: const Icon(Icons.add_call),
           ),
           const Text('Exercitii page'),
         ]),
@@ -24,11 +24,11 @@ class ExercitiiPage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.call),
+            icon: const Icon(Icons.call),
           ),
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.more_vert),
+            icon: const Icon(Icons.more_vert),
           ),
         ],
       ),
