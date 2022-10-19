@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'route/route.dart' as route;
 
 void main() {

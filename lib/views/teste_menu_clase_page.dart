@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mate_mato/models/menu_clase.dart';
+import 'package:mate_mato/screen_arguments/screen_arguments.dart';
 import 'package:mate_mato/utils/nav_bar.dart';
 import 'package:mate_mato/route/route.dart' as route;
 import 'package:mate_mato/services/remote_service_menu_clase.dart';
 
-class TestePage extends StatefulWidget {
-  const TestePage({super.key});
+class TesteMenuClasePage extends StatefulWidget {
+  const TesteMenuClasePage({super.key});
 
   @override
-  State<TestePage> createState() => _TestePageState();
+  State<TesteMenuClasePage> createState() => _TesteMenuClasePageState();
 }
 
-class _TestePageState extends State<TestePage> {
+class _TesteMenuClasePageState extends State<TesteMenuClasePage> {
   List<MenuClase>? menuclase;
   bool isLoaded = true;
 
@@ -87,8 +88,13 @@ class _TestePageState extends State<TestePage> {
                                 }
                               }),
                             ),
-                            onPressed: () =>
-                                Navigator.pushNamed(context, route.homePage),
+                            onPressed: () {
+                              // ignore: avoid_print
+                              print(context);
+                              Navigator.pushNamed(context, route.rezultatePage,
+                                  arguments:
+                                      ScreenArguments('resultate', '09'));
+                            },
                             child: Padding(
                               padding: const EdgeInsets.only(
                                   top: 18.0, bottom: 10, left: 10, right: 10),
