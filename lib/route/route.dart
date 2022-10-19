@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:mate_mato/views/home_page.dart';
-import 'package:mate_mato/views/exercitii_page.dart';
+import 'package:mate_mato/views/teste_page.dart';
 //import 'package:mate_mato/views/premii_page.dart';
 import 'package:mate_mato/views/rezultate_page.dart';
 import 'package:mate_mato/views/teorie_page.dart';
@@ -11,7 +11,7 @@ import 'package:mate_mato/views/teorie_page.dart';
 // Routes Names
 
 const String homePage = 'home';
-const String exercitiiPage = 'exercitiipage';
+const String testePage = 'testepage';
 const String rezultatePage = 'rezultatepage';
 const String teoriePage = 'teoriepage';
 
@@ -22,8 +22,8 @@ Route<dynamic> controller(RouteSettings settings) {
     case homePage:
       return MaterialPageRoute(builder: (context) => const HomePage());
 
-    case exercitiiPage:
-      return MaterialPageRoute(builder: (context) => const ExercitiiPage());
+    case testePage:
+      return MaterialPageRoute(builder: (context) => const TestePage());
     case rezultatePage:
       return MaterialPageRoute(builder: (context) => const RezultatePage());
     case teoriePage:

@@ -40,8 +40,8 @@ class NavBar extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.mode_outlined),
-            title: const Text('Exercitii'),
-            onTap: () => Navigator.pushNamed(context, route.exercitiiPage),
+            title: const Text('Teste'),
+            onTap: () => Navigator.pushNamed(context, route.testePage),
           ),
           ListTile(
             leading: const Icon(Icons.school),

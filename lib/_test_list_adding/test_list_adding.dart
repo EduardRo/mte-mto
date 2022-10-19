@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'dart:developer';
 
 void main() {
   runApp(const MyApp());
-  print('Exit App...');
+  // print('Exit App...');
 }
 
 class MyApp extends StatelessWidget {
@@ -42,7 +41,7 @@ class _ExercitiiPageState extends State<ExercitiiPage> {
   _changeElement() {
     data[index][5] = 'new_r';
     index = index + 1;
-    print(data);
+    //print(data);
   }
 
   @override
