@@ -5,6 +5,7 @@ import 'package:mate_mato/screen_arguments/screen_arguments.dart';
 import 'package:mate_mato/utils/nav_bar.dart';
 import 'package:mate_mato/route/route.dart' as route;
 import 'package:mate_mato/services/remote_service_menu_clase.dart';
+import 'package:mate_mato/views/rezultate_page.dart';
 
 class TesteMenuClasePage extends StatefulWidget {
   const TesteMenuClasePage({super.key});
@@ -91,9 +92,12 @@ class _TesteMenuClasePageState extends State<TesteMenuClasePage> {
                             onPressed: () {
                               // ignore: avoid_print
                               print(context);
-                              Navigator.pushNamed(context, route.rezultatePage,
-                                  arguments:
-                                      ScreenArguments('resultate', '09'));
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const RezultatePage(),
+                                ),
+                              );
                             },
                             child: Padding(
                               padding: const EdgeInsets.only(

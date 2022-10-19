@@ -7,11 +7,19 @@ class RezultatePage extends StatelessWidget {
   //final ScreenArguments arguments;
   @override
   Widget build(BuildContext context) {
-    //final Object? arguments = ModalRoute.of(context)!.settings.arguments;
+    final data = ModalRoute.of(context)!.settings.arguments;
+
+    late String retriveString;
+    print(data);
+    if (data == null) {
+      retriveString = "empty";
+    } else {
+      retriveString = data as String;
+    }
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('arguments.clasa.toString()'),
+        title: Text(retriveString),
       ),
       body: const Text('arguments.clasa.toString()'),
     );
