@@ -27,7 +27,8 @@ Route<dynamic> controller(RouteSettings settings) {
       return MaterialPageRoute(
           builder: (context) => const TesteMenuClasePage());
     case rezultatePage:
-      return MaterialPageRoute(builder: (context) => const RezultatePage());
+      return MaterialPageRoute(
+          builder: (context) => RezultatePage(settings.arguments));
 
     case teoriePage:
       return MaterialPageRoute(builder: (context) => const TeoriePage());

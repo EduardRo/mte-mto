@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class RezultatePage extends StatelessWidget {
-  const RezultatePage({
+  const RezultatePage(
+    Object? arguments, {
     super.key,
   });
   //final ScreenArguments arguments;
@@ -12,16 +13,16 @@ class RezultatePage extends StatelessWidget {
     late String retriveString;
     print(data);
     if (data == null) {
-      retriveString = "empty";
+      retriveString = "wtf";
     } else {
-      retriveString = data as String;
+      retriveString = "not empty";
     }
 
     return Scaffold(
       appBar: AppBar(
         title: Text(retriveString),
       ),
-      body: const Text('arguments.clasa.toString()'),
+      body: Text(ModalRoute.of(context)!.toString()),
     );
   }
 }

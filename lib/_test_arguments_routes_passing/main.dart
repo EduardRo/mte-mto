@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'route/route.dart' as route;
-
 void main() {
   runApp(const MyApp());
 }
@@ -35,7 +33,7 @@ class FirstPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('First Page'),
+        title: const Text('First Page'),
       ),
       body: Container(
           child: ElevatedButton(
@@ -55,11 +53,10 @@ class SecondPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Second Page'),
       ),
-      body: Container(
-          child: ElevatedButton(
+      body: ElevatedButton(
         child: const Text('->first Page'),
         onPressed: () {},
-      )),
+      ),
     );
   }
 }

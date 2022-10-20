@@ -95,7 +95,9 @@ class _TesteMenuClasePageState extends State<TesteMenuClasePage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const RezultatePage(),
+                                  builder: (context) => RezultatePage(
+                                      ScreenArguments(
+                                          'title', index.toString())),
                                 ),
                               );
                             },
