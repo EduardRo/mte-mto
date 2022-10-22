@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mate_mato/_test_arguments_routes_passing/page2.dart';
-import 'page1.dart';
+import 'package:mate_mato/_test_arguments_routes_passing/route.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -15,8 +14,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // Initially display FirstPage
-      home: const FirstPage(),
-      routes: {'secondPage': (_) => const SecondPage(data: 'data variant 1')},
+      //home: const FirstPage(),
+      initialRoute: '/',
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }

@@ -1,28 +1,20 @@
 import 'package:flutter/material.dart';
 
 class RezultatePage extends StatelessWidget {
-  const RezultatePage(
-    Object? arguments, {
-    super.key,
-  });
+  final String data;
+
+  const RezultatePage({
+    Key? key,
+    required this.data,
+  }) : super(key: key);
   //final ScreenArguments arguments;
   @override
   Widget build(BuildContext context) {
-    final data = ModalRoute.of(context)!.settings.arguments;
-
-    late String retriveString;
-    print(data);
-    if (data == null) {
-      retriveString = "wtf";
-    } else {
-      retriveString = "not empty";
-    }
-
     return Scaffold(
       appBar: AppBar(
-        title: Text(retriveString),
+        title: Text('Clasa este $data'),
       ),
-      body: Text(ModalRoute.of(context)!.toString()),
+      body: Text(data),
     );
   }
 }

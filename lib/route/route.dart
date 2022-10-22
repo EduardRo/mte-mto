@@ -10,30 +10,43 @@ import 'package:mate_mato/views/teorie_page.dart';
 //import 'package:mate_mato/views/despre_page.dart';
 
 // Routes Names
-
-const String homePage = 'home';
-const String testePage = 'testepage';
-const String rezultatePage = 'rezultatepage';
-const String teoriePage = 'teoriepage';
-
+class RouteGenerator {
 // Control our page route flow
 
-Route<dynamic> controller(RouteSettings settings) {
-  switch (settings.name) {
-    case homePage:
-      return MaterialPageRoute(builder: (context) => const HomePage());
+  static Route<dynamic> controllerRoute(RouteSettings settings) {
+    final args = settings.arguments;
+    switch (settings.name) {
+      case '/':
+        return MaterialPageRoute(builder: (context) => const HomePage());
 
-    case testePage:
-      return MaterialPageRoute(
-          builder: (context) => const TesteMenuClasePage());
-    case rezultatePage:
-      return MaterialPageRoute(
-          builder: (context) => RezultatePage(settings.arguments));
+      case '/testepage':
+        return MaterialPageRoute(
+            builder: (context) => const TesteMenuClasePage());
+      case '/rezultatepage':
+        if (args is String) {
+          return MaterialPageRoute(builder: (_) => RezultatePage(data: args));
+        } else {
+          return _errorRoute();
+        }
 
-    case teoriePage:
-      return MaterialPageRoute(builder: (context) => const TeoriePage());
+      case 'teoriepage':
+        return MaterialPageRoute(builder: (context) => const TeoriePage());
 
-    default:
-      throw ('This route name does not exits');
+      default:
+        return _errorRoute();
+    }
+  }
+
+  static Route<dynamic> _errorRoute() {
+    return MaterialPageRoute(builder: (_) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('error'),
+        ),
+        body: const Center(
+          child: Text('error'),
+        ),
+      );
+    });
   }
 }

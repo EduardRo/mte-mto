@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mate_mato/models/menu_clase.dart';
-import 'package:mate_mato/screen_arguments/screen_arguments.dart';
+//import 'package:mate_mato/screen_arguments/screen_arguments.dart';
 import 'package:mate_mato/utils/nav_bar.dart';
-import 'package:mate_mato/route/route.dart' as route;
+//import 'package:mate_mato/route/route.dart' as route;
 import 'package:mate_mato/services/remote_service_menu_clase.dart';
-import 'package:mate_mato/views/rezultate_page.dart';
+//import 'package:mate_mato/views/rezultate_page.dart';
 
 class TesteMenuClasePage extends StatefulWidget {
   const TesteMenuClasePage({super.key});
@@ -17,6 +17,7 @@ class TesteMenuClasePage extends StatefulWidget {
 class _TesteMenuClasePageState extends State<TesteMenuClasePage> {
   List<MenuClase>? menuclase;
   bool isLoaded = true;
+  String vari = 'asta e variabila care o trimit de test';
 
   @override
   void initState() {
@@ -33,6 +34,21 @@ class _TesteMenuClasePageState extends State<TesteMenuClasePage> {
     }
   }
 
+  createvari(int index) {
+    switch (index) {
+      case 0:
+        return '09';
+      case 1:
+        return '10';
+      case 2:
+        return '11';
+      case 3:
+        return '12';
+
+      default:
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +62,7 @@ class _TesteMenuClasePageState extends State<TesteMenuClasePage> {
           const Text('Teste Page'),
         ]),
         leading: IconButton(
-          onPressed: () => Navigator.pushNamed(context, route.homePage),
+          onPressed: () => Navigator.pushNamed(context, '/'),
           icon: const Icon(Icons.home),
         ),
         actions: [
@@ -63,59 +79,25 @@ class _TesteMenuClasePageState extends State<TesteMenuClasePage> {
       body: Visibility(
         visible: isLoaded,
         // ignore: sort_child_properties_last
-        child: Padding(
-          padding: const EdgeInsets.only(top: 128.0),
-          child: ListView.builder(
-              itemCount: menuclase?.length,
-              itemBuilder: (context, index) {
-                return Expanded(
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            left: 8.0, right: 20, top: 1, bottom: 10),
-                        child: SizedBox(
-                          width: 500,
-                          height: 100,
-                          child: ElevatedButton(
-                            style: ButtonStyle(
-                              elevation:
-                                  MaterialStateProperty.resolveWith<double?>(
-                                      (Set<MaterialState> states) {
-                                if (states.contains(MaterialState.pressed)) {
-                                  return 16;
-                                } else {
-                                  return null;
-                                }
-                              }),
-                            ),
-                            onPressed: () {
-                              // ignore: avoid_print
-                              print(context);
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => RezultatePage(
-                                      ScreenArguments(
-                                          'title', index.toString())),
-                                ),
-                              );
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 18.0, bottom: 10, left: 10, right: 10),
-                              child: Text(
-                                menuclase![index].codclasa,
-                                style: GoogleFonts.bebasNeue(fontSize: 30),
-                              ),
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
+        child: ListView.builder(
+          itemCount: menuclase?.length,
+          itemBuilder: (context, index) {
+            return Expanded(
+              child: Column(children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/rezultatepage',
+                          arguments: createvari(index));
+                    },
+                    child: Text(menuclase![index].codclasa,
+                        style: GoogleFonts.abel(fontSize: 30)),
                   ),
-                );
-              }),
+                )
+              ]),
+            );
+          },
         ),
         replacement: const Center(child: CircularProgressIndicator()),
       ),
