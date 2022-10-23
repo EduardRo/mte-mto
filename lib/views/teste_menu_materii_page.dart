@@ -88,8 +88,14 @@ class _TesteMenuMateriiPageState extends State<TesteMenuMateriiPage> {
                             ),
                             Row(
                               children: const [
-                                Icon(Icons.star),
-                                Icon(Icons.star),
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.yellow,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: Color.fromARGB(255, 200, 244, 54),
+                                ),
                                 Icon(Icons.star),
                                 Icon(Icons.star),
                                 Icon(Icons.star),
