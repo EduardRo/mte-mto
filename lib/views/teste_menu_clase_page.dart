@@ -17,7 +17,7 @@ class TesteMenuClasePage extends StatefulWidget {
 class _TesteMenuClasePageState extends State<TesteMenuClasePage> {
   List<MenuClase>? menuclase;
   bool isLoaded = true;
-  String vari = 'asta e variabila care o trimit de test';
+  //String vari = 'asta e variabila care o trimit de test';
 
   @override
   void initState() {
@@ -78,7 +78,7 @@ class _TesteMenuClasePageState extends State<TesteMenuClasePage> {
       ),
       body: Visibility(
         visible: isLoaded,
-        // ignore: sort_child_properties_last
+        replacement: const Center(child: CircularProgressIndicator()),
         child: ListView.builder(
           itemCount: menuclase?.length,
           itemBuilder: (context, index) {
@@ -99,7 +99,6 @@ class _TesteMenuClasePageState extends State<TesteMenuClasePage> {
             );
           },
         ),
-        replacement: const Center(child: CircularProgressIndicator()),
       ),
     );
   }
