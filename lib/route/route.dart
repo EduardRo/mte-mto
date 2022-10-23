@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mate_mato/screen_arguments/screen_arguments.dart';
 
 import 'package:mate_mato/views/home_page.dart';
-import 'package:mate_mato/views/test.dart';
+import 'package:mate_mato/views/test_page.dart';
 import 'package:mate_mato/views/teste_menu_clase_page.dart';
 //import 'package:mate_mato/views/premii_page.dart';
 import 'package:mate_mato/views/rezultate_page.dart';
@@ -43,7 +43,7 @@ class RouteGenerator {
       case '/test':
         if (args is ScreenArguments) {
           return MaterialPageRoute(
-              builder: (_) => Test(
+              builder: (_) => TestPage(
                     args: args,
                   ));
         } else {
