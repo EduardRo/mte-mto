@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mate_mato/screen_arguments/screen_arguments.dart';
 
 import 'package:mate_mato/views/home_page.dart';
+import 'package:mate_mato/views/test.dart';
 import 'package:mate_mato/views/teste_menu_clase_page.dart';
 //import 'package:mate_mato/views/premii_page.dart';
 import 'package:mate_mato/views/rezultate_page.dart';
@@ -39,9 +41,11 @@ class RouteGenerator {
           return _errorRoute();
         }
       case '/test':
-        if (args is String) {
+        if (args is ScreenArguments) {
           return MaterialPageRoute(
-              builder: (_) => TesteMenuMateriiPage(data: args));
+              builder: (_) => Test(
+                    args: args,
+                  ));
         } else {
           return _errorRoute();
         }

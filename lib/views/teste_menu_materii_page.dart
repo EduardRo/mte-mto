@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mate_mato/models/menu_materii.dart';
+import 'package:mate_mato/screen_arguments/screen_arguments.dart';
 
 import '../services/remote_service_menu_materii.dart';
 
@@ -72,7 +73,10 @@ class _TesteMenuMateriiPageState extends State<TesteMenuMateriiPage> {
                           backgroundColor: Colors.black),
                       onPressed: () {
                         Navigator.of(context).pushNamed('/test',
-                            arguments: menumaterii![index].codserie.toString());
+                            arguments: ScreenArguments(
+                                menumaterii![index].codmaterie.toString(),
+                                menumaterii![index].codclasa.toString(),
+                                menumaterii![index].codserie.toString()));
                       },
                       child: Padding(
                         padding: const EdgeInsets.only(top: 12.0, bottom: 12.0),

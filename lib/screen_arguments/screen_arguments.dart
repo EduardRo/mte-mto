@@ -1,6 +1,7 @@
 class ScreenArguments {
-  final String title;
+  final String mat;
   final String clasa;
+  final String serie;
 
-  ScreenArguments(this.title, this.clasa);
+  ScreenArguments(this.mat, this.clasa, this.serie);
 }
