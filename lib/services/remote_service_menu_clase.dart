@@ -1,7 +1,7 @@
 import '../models/menu_clase.dart';
 import 'package:http/http.dart' as http;
 
-class RemoteService {
+class RemoteServiceClase {
   Future<List<MenuClase>?> getMenuClase() async {
     var client = http.Client();
 

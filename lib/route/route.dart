@@ -6,6 +6,8 @@ import 'package:mate_mato/views/teste_menu_clase_page.dart';
 import 'package:mate_mato/views/rezultate_page.dart';
 import 'package:mate_mato/views/teorie_page.dart';
 
+import '../views/teste_menu_materii_page.dart';
+
 //import 'package:mate_mato/views/settings_page.dart';
 //import 'package:mate_mato/views/despre_page.dart';
 
@@ -29,6 +31,13 @@ class RouteGenerator {
           return _errorRoute();
         }
 
+      case '/testematerii':
+        if (args is String) {
+          return MaterialPageRoute(
+              builder: (_) => TesteMenuMateriiPage(data: args));
+        } else {
+          return _errorRoute();
+        }
       case 'teoriepage':
         return MaterialPageRoute(builder: (context) => const TeoriePage());
 

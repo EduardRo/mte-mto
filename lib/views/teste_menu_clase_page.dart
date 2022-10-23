@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mate_mato/models/menu_clase.dart';
-//import 'package:mate_mato/screen_arguments/screen_arguments.dart';
 import 'package:mate_mato/utils/nav_bar.dart';
-//import 'package:mate_mato/route/route.dart' as route;
 import 'package:mate_mato/services/remote_service_menu_clase.dart';
-//import 'package:mate_mato/views/rezultate_page.dart';
 
 class TesteMenuClasePage extends StatefulWidget {
   const TesteMenuClasePage({super.key});
@@ -26,7 +23,7 @@ class _TesteMenuClasePageState extends State<TesteMenuClasePage> {
   }
 
   getData() async {
-    menuclase = await RemoteService().getMenuClase();
+    menuclase = await RemoteServiceClase().getMenuClase();
     if (menuclase != null) {
       setState(() {
         isLoaded = true;
@@ -85,14 +82,17 @@ class _TesteMenuClasePageState extends State<TesteMenuClasePage> {
             return Expanded(
               child: Column(children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).pushNamed('/rezultatepage',
-                          arguments: createvari(index));
-                    },
-                    child: Text(menuclase![index].codclasa,
-                        style: GoogleFonts.abel(fontSize: 30)),
+                  padding: const EdgeInsets.all(1.0),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pushNamed('/testematerii',
+                            arguments: createvari(index));
+                      },
+                      child: Text(menuclase![index].codclasa,
+                          style: GoogleFonts.abel(fontSize: 30)),
+                    ),
                   ),
                 )
               ]),
