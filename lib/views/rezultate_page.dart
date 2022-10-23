@@ -12,7 +12,8 @@ class RezultatePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Clasa este $data'),
+        automaticallyImplyLeading: false,
+        title: Text('Rezultatul testului este $data'),
       ),
       body: Text(data),
     );

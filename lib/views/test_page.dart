@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:mate_mato/services/remote_service_test.dart';
 import 'package:mate_mato/screen_arguments/screen_arguments.dart';
 
@@ -61,9 +61,13 @@ class _TestPageState extends State<TestPage> {
             ),
             GestureDetector(
               onTap: () {
-                if (testNo < test!.length.bitLength) {
+                if (testNo < test!.length - 1) {
                   print('valoarea $testNo iar $test!.length.toInt()');
                   return nextScreen();
+                } else {
+                  print('finish');
+                  Navigator.of(context).pushNamed('/rezultatepage',
+                      arguments: test![testNo].raspuns.toString());
                 }
               },
               child: Padding(

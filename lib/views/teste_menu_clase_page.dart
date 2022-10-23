@@ -85,13 +85,56 @@ class _TesteMenuClasePageState extends State<TesteMenuClasePage> {
                   padding: const EdgeInsets.all(1.0),
                   child: SizedBox(
                     width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).pushNamed('/testematerii',
-                            arguments: createvari(index));
-                      },
-                      child: Text(menuclase![index].codclasa,
-                          style: GoogleFonts.abel(fontSize: 30)),
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        color: Color.fromARGB(255, 135, 17, 117),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.white,
+                            offset: Offset(4.0, 4.0),
+                            spreadRadius: 1.3,
+                            blurRadius: 2.0,
+                          ),
+                          BoxShadow(
+                            color: Color.fromARGB(255, 171, 194, 172),
+                            offset: Offset(-4.0, -4.0),
+                            spreadRadius: 1.3,
+                            blurRadius: 2.0,
+                          ),
+                        ],
+                        gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              Color.fromARGB(255, 127, 114, 114),
+                              Color.fromARGB(255, 118, 71, 71),
+                              Color.fromARGB(255, 95, 69, 69),
+                              Color.fromARGB(255, 42, 2, 2),
+                            ],
+                            stops: [
+                              0,
+                              0.1,
+                              0.3,
+                              1
+                            ]),
+                      ),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.black),
+                        onPressed: () {
+                          Navigator.of(context).pushNamed('/testematerii',
+                              arguments: createvari(index));
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(28.0),
+                          child: Text(
+                            menuclase![index].codclasa,
+                            style: GoogleFonts.abel(
+                                fontSize: 30, color: Colors.green),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 )
@@ -103,3 +146,5 @@ class _TesteMenuClasePageState extends State<TesteMenuClasePage> {
     );
   }
 }
+
+// l-am decorat pe butonul asta de l-am inebunit
