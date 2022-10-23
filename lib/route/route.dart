@@ -38,6 +38,13 @@ class RouteGenerator {
         } else {
           return _errorRoute();
         }
+      case '/test':
+        if (args is String) {
+          return MaterialPageRoute(
+              builder: (_) => TesteMenuMateriiPage(data: args));
+        } else {
+          return _errorRoute();
+        }
       case 'teoriepage':
         return MaterialPageRoute(builder: (context) => const TeoriePage());
 
