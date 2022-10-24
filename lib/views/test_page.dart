@@ -72,6 +72,8 @@ class _TestPageState extends State<TestPage> {
                   return nextScreen();
                 } else {
                   print('finish');
+                  // se salveaza ultimul raspuns
+                  results![testNo] = raspuns.toString();
                   Navigator.of(context)
                       .pushNamed('/rezultatepage', arguments: raspuns);
                 }
