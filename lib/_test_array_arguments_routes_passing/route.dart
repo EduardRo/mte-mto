@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:mate_mato/_test_arguments_routes_passing/page1.dart';
-import 'package:mate_mato/_test_arguments_routes_passing/page2.dart';
+import 'package:mate_mato/_test_array_arguments_routes_passing/page1.dart';
+import 'package:mate_mato/_test_array_arguments_routes_passing/page2.dart';
+
+import 'argumentclass.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    final args = settings.arguments;
+    final args = settings.arguments as ScreenArguments?;
 
     switch (settings.name) {
       case '/':
-        return MaterialPageRoute(builder: (_) => FirstPage());
+        return MaterialPageRoute(builder: (_) => const FirstPage());
       case '/second':
-        if (args is String) {
-          return MaterialPageRoute(builder: (_) => SecondPage(data: args));
-        } else {
-          return _errorRoute();
-        }
+        // ignore: unrelated_type_equality_checks
+
+        return MaterialPageRoute(builder: (BuildContext context) {
+          ScreenArguments argument = args!;
+          return SecondPage(
+              r1: argument.r1,
+              r2: argument.r2,
+              r3: argument.r3,
+              r4: argument.r4,
+              r5: argument.r5);
+        });
 
       default:
         return _errorRoute();

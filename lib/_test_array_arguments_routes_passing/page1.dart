@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mate_mato/_test_array_arguments_routes_passing/argumentclass.dart';
 
 // ignore: must_be_immutable
 class FirstPage extends StatelessWidget {
-  FirstPage({super.key});
-  String vari = 'aste e variabiala pe care vreau s-o trimit';
+  const FirstPage({super.key});
+  //String vari = 'aste e variabiala pe care vreau s-o trimit';
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,17 @@ class FirstPage extends StatelessWidget {
               child: const Text('Go to second'),
               onPressed: () {
                 // Pushing a route directly, WITHOUT using a named route
-                Navigator.of(context).pushNamed('/second', arguments: vari);
+                Navigator.pushNamed(
+                  context,
+                  '/second',
+                  arguments: ScreenArguments(
+                    'valoare1',
+                    'valoare2',
+                    'valoare3',
+                    'valoare4',
+                    'valoare5',
+                  ),
+                );
               },
             )
           ],
