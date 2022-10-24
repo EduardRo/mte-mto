@@ -13,7 +13,7 @@ class RezultatePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('Rezultatul testului este $data'),
+        title: const Text('Rezultatul testului:'),
       ),
       body: Text(data),
     );

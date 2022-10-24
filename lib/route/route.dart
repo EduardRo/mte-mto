@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mate_mato/screen_arguments/screen_arguments.dart';
+import 'package:mate_mato/class_arguments/screen_arguments.dart';
 
 import 'package:mate_mato/views/home_page.dart';
 import 'package:mate_mato/views/test_page.dart';
@@ -7,6 +7,7 @@ import 'package:mate_mato/views/teste_menu_clase_page.dart';
 //import 'package:mate_mato/views/premii_page.dart';
 import 'package:mate_mato/views/rezultate_page.dart';
 import 'package:mate_mato/views/teorie_page.dart';
+import 'package:theme_provider/theme_provider.dart';
 
 import '../views/teste_menu_materii_page.dart';
 
@@ -19,13 +20,15 @@ class RouteGenerator {
 
   static Route<dynamic> controllerRoute(RouteSettings settings) {
     final args = settings.arguments;
+
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (context) => const HomePage());
 
       case '/testepage':
         return MaterialPageRoute(
-            builder: (context) => const TesteMenuClasePage());
+            builder: (context) =>
+                const ThemeConsumer(child: TesteMenuClasePage()));
       case '/rezultatepage':
         if (args is String) {
           return MaterialPageRoute(builder: (_) => RezultatePage(data: args));

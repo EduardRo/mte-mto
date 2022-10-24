@@ -2,14 +2,16 @@
 
 import 'package:flutter/material.dart';
 
+//import 'package:mate_mato/class_arguments/result_argument.dart';
+import 'package:mate_mato/class_arguments/screen_arguments.dart';
 import 'package:mate_mato/services/remote_service_test.dart';
-import 'package:mate_mato/screen_arguments/screen_arguments.dart';
 
 import '../models/test.dart';
 
 class TestPage extends StatefulWidget {
   //final String codserie;
   final ScreenArguments args;
+
   const TestPage({
     Key? key,
     required this.args,
@@ -21,6 +23,8 @@ class TestPage extends StatefulWidget {
 
 class _TestPageState extends State<TestPage> {
   List<Test>? test;
+  List<String>? results = ['r', 'r', 'r', 'r', 'r', 'r', 'r', 'r'];
+  String? raspuns;
   bool isLoaded = true;
   int testNo = 0;
   @override
@@ -62,29 +66,38 @@ class _TestPageState extends State<TestPage> {
             GestureDetector(
               onTap: () {
                 if (testNo < test!.length - 1) {
-                  print('valoarea $testNo iar $test!.length.toInt()');
+                  print('valoarea $testNo ');
+                  print(test![testNo].raspuns);
+                  raspuns = test![testNo].raspuns;
                   return nextScreen();
                 } else {
                   print('finish');
-                  Navigator.of(context).pushNamed('/rezultatepage',
-                      arguments: test![testNo].raspuns.toString());
+                  Navigator.of(context)
+                      .pushNamed('/rezultatepage', arguments: raspuns);
                 }
               },
               child: Padding(
                 padding: const EdgeInsets.all(30.0),
                 child: Image.network(
-                    'https://www.matematicon.ro/m/mem/${test![testNo].path}/${test![testNo].var1}.png'),
+                  'https://www.matematicon.ro/m/mem/${test![testNo].path}/${test![testNo].var1}.png',
+                  color: Colors.black,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(30.0),
               child: Image.network(
                 'https://www.matematicon.ro/m/mem/${test![testNo].path}/${test![testNo].var2}.png',
-                color: Colors.blue,
+                color: Colors.black,
               ),
             ),
-            Image.network(
-                'https://www.matematicon.ro/m/mem/${test![testNo].path}/${test![testNo].raspuns}.png'),
+            Padding(
+              padding: const EdgeInsets.all(30.0),
+              child: Image.network(
+                'https://www.matematicon.ro/m/mem/${test![testNo].path}/${test![testNo].raspuns}.png',
+                color: Colors.black,
+              ),
+            ),
           ],
         ),
       ),
@@ -93,8 +106,10 @@ class _TestPageState extends State<TestPage> {
 
   void nextScreen() {
     setState(() {
+      results![testNo] = raspuns.toString();
       testNo = testNo + 1;
-      print('lungimea $test!.length testNo: $testNo');
+
+      print('results: $results raspuns: $raspuns');
     });
   }
 }
