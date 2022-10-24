@@ -121,7 +121,8 @@ class _TesteMenuClasePageState extends State<TesteMenuClasePage> {
                       ),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.black),
+                          backgroundColor: Colors.black,
+                        ),
                         onPressed: () {
                           Navigator.of(context).pushNamed('/testematerii',
                               arguments: createvari(index));
