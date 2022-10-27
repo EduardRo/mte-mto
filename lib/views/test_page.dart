@@ -53,6 +53,7 @@ class _TestPageState extends State<TestPage> {
         visible: isLoaded,
         replacement: const Center(child: CircularProgressIndicator()),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(test![testNo].idtest),
             Padding(
@@ -82,7 +83,7 @@ class _TestPageState extends State<TestPage> {
                 padding: const EdgeInsets.all(30.0),
                 child: Image.network(
                   'https://www.matematicon.ro/m/mem/${test![testNo].path}/${test![testNo].var1}.png',
-                  color: Colors.black,
+                  color: const Color.fromARGB(255, 255, 255, 255),
                 ),
               ),
             ),
@@ -90,14 +91,14 @@ class _TestPageState extends State<TestPage> {
               padding: const EdgeInsets.all(30.0),
               child: Image.network(
                 'https://www.matematicon.ro/m/mem/${test![testNo].path}/${test![testNo].var2}.png',
-                color: Colors.black,
+                color: const Color.fromARGB(255, 255, 255, 255),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(30.0),
               child: Image.network(
                 'https://www.matematicon.ro/m/mem/${test![testNo].path}/${test![testNo].raspuns}.png',
-                color: Colors.black,
+                color: const Color.fromARGB(255, 255, 255, 255),
               ),
             ),
           ],
