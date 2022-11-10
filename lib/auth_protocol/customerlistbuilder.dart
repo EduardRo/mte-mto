@@ -30,3 +30,28 @@ class CustomerListBuilder extends StatelessWidget {
         });
   }
 }
+
+//-----------
+List<MenuMaterii>? menumaterii;
+bool isLoaded = true;
+int nrMaterii = 0;
+//final ScreenArguments arguments;
+@override
+void initState() {
+  super.initState();
+  getData();
+}
+
+getData() async {
+  menumaterii = await RemoteServiceMaterii().getMenuMaterii(widget.data);
+  if (menumaterii != null) {
+    setState(() {
+      isLoaded = true;
+
+      nrMaterii = menumaterii!.length.toInt();
+      //print(menumaterii?.length);
+    });
+
+    //print(nrMaterii);
+  }
+}
