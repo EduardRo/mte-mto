@@ -1,153 +1,80 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-class SignupPage extends StatelessWidget {
+class SignUp extends StatefulWidget {
+  const SignUp({super.key});
+
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      //resizeToAvoidBottomPadding: false,
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios,
-              size: 20,
-              color: Colors.black,
-            )),
-        systemOverlayStyle: SystemUiOverlayStyle.dark,
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
-            height: MediaQuery.of(context).size.height,
-            width: double.infinity,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        const Text(
-                          "Sign up",
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          "Create an Account,Its free",
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.grey[700],
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        )
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 40),
-                      child: Column(
-                        children: [
-                          makeInput(label: "Email"),
-                          makeInput(label: "Password", obsureText: true),
-                          makeInput(label: "Confirm Pasword", obsureText: true)
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 40),
-                      child: Container(
-                        padding: EdgeInsets.only(top: 3, left: 3),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(40),
-                            border: const Border(
-                                bottom: BorderSide(color: Colors.black),
-                                top: BorderSide(color: Colors.black),
-                                right: BorderSide(color: Colors.black),
-                                left: BorderSide(color: Colors.black))),
-                        child: MaterialButton(
-                          minWidth: double.infinity,
-                          height: 60,
-                          onPressed: () {},
-                          color: Colors.redAccent,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(40)),
-                          child: const Text(
-                            "Sign Up",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Text("Already have an account? "),
-                        Text(
-                          "Login",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600, fontSize: 18),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
+  State<SignUp> createState() => _SignUpState();
 }
 
-Widget makeInput({label, obsureText = false}) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Text(
-        label,
-        style: const TextStyle(
-            fontSize: 15, fontWeight: FontWeight.w400, color: Colors.black87),
-      ),
-      const SizedBox(
-        height: 5,
-      ),
-      TextField(
-        obscureText: obsureText,
-        decoration: const InputDecoration(
-          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.grey,
-            ),
+class _SignUpState extends State<SignUp> {
+  @override
+  Widget build(BuildContext context) {
+    var _count = 5;
+    return MaterialApp(
+        title: 'title',
+        home: Scaffold(
+          appBar: AppBar(
+            title: const Text('Sample Code'),
           ),
-          border:
-              OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-        ),
-      ),
-      const SizedBox(
-        height: 30,
-      )
-    ],
-  );
+          body: Column(
+            children: [
+              Center(child: Text('You have pressed the button $_count times.')),
+              const Text('Login Page'),
+              const SizedBox(height: 30.0),
+              Padding(
+                padding: const EdgeInsets.all(28.0),
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    hintText: 'Enter your name',
+                  ),
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(28.0),
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    hintText: 'Enter your email',
+                  ),
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text('Sign up'),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      height: 80,
+                      width: 80,
+                      decoration: const BoxDecoration(shape: BoxShape.circle),
+                      child: const Text('baba'),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () => setState(() => _count++),
+            tooltip: 'Increment Counter',
+            child: const Icon(Icons.add),
+          ),
+        ));
+  }
 }
