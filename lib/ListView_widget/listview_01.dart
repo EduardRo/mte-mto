@@ -41,7 +41,8 @@ class ListViewApp extends StatelessWidget {
         );
       },
       separatorBuilder: ((BuildContext context, int index) => const Divider(
-            color: Colors.white,
+            color: Colors.black,
+            
           )),
     );
   }
