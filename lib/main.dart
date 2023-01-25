@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         darkTheme: ThemeData(
           brightness: Brightness.dark,
+          useMaterial3: true,
           /* dark theme settings */
         ),
         onGenerateRoute: RouteGenerator.controllerRoute,
